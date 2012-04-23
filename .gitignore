@@ -1,0 +1,10 @@
+bin/
+*.sdf
+*.opensdf
+ipch/
+*.suo
+*.user
+buildtmp/
+doc/
+
+
