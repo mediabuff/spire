@@ -42,6 +42,9 @@
 
 #ifdef SPIRE_UNITTEST
 #   include <gtest/gtest.h>
+#   include <gmock/gmock.h>
+//  Necessary to special case these libraries because the names are different
+//  in debug and release builds, which .props files can't easily handle.
 #   ifdef _DEBUG
 #       pragma comment(lib, "gtestd.lib")
 #       pragma comment(lib, "gtest_maind.lib")

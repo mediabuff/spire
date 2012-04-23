@@ -17,13 +17,27 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\core\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\service.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\engine\src\spire\core\prefix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\framework.cpp">
+    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_framework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\engine\src\spire\core\service.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\..\..\engine\src\spire\core\framework.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

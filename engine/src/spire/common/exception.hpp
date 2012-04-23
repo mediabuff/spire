@@ -145,6 +145,7 @@ namespace spire
 #       define WIN_CHECK(expr) if (!(expr)) throw spire::common::Win32Error("Assert failed: " #expr) << spire::common::Win32ErrorInfo(GetLastError());
     }   //  namespace common
     using common::Exception;
+    using common::Error;
     using common::SystemError;
     using common::RuntimeError;
     using common::DataError;
