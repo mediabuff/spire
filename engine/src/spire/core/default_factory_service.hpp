@@ -20,7 +20,7 @@ namespace spire
         ///
         /// Default implementation for FactoryService.
         ///
-        class DefaultFactoryService : public FactoryService
+        class DefaultFactoryService : public BasicService<FactoryService>
         {
         public:
             ///
@@ -36,7 +36,17 @@ namespace spire
             ///
             /// From FactoryService.
             /// @{
-
+            virtual void Register(std::string name,
+                                  std::unique_ptr<Factory> prototype);
+            virtual Factory& Acquire(std::string type,
+                                     std::string name);
+            //! @}
+        
+        private:
+            std::map<std::string, std::unique_ptr<Factory>> m_factoryPrototypeMap;
+            std::map<std::string, 
+                     std::map<std::string, 
+                              std::unique_ptr<Factory>>> m_factoryMap;
         };
     }
 }

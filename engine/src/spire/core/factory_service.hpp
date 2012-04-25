@@ -18,9 +18,15 @@ namespace spire
         class Factory;
 
         ///
+        /// Exception thrown when an attempt to acquire a factory fails
+        /// because no factory matching the type and name was found.
+        ///
+        typedef Error<struct _FactoryNotFoundError, RuntimeError> FactoryNotFoundError;
+
+        ///
         /// Manages the repository of Factory instances.
         ///
-        class FactoryService
+        class FactoryService : public Servce
         {
         public:
             ///
@@ -29,29 +35,29 @@ namespace spire
             virtual ~FactoryService() = 0 { };
 
             ///
-            /// Registers a factory type.
+            /// Registers a factory prototype.
             ///
             /// @param name Name of the factory type.
-            /// @param generator Function which will instantiate factory objects.
+            /// @param prototype Prototype factory instance.
             ///
             virtual void Register(std::string name,
-                                  std::function<Factory*()> generator) = 0;
+                                  std::unique_ptr<Factory> prototype) = 0;
 
             ///
             /// Acquires a factory.
             ///
-            /// @tparam Factory type (typically a specialization of BasicFactory.)
+            /// @tparam Factory interface.
             /// @param name Name of the factory to acquire.
             ///
             template <typename T>
-            T& Acquire(const std::string& name);
+            T& Acquire(std::string name);
 
         protected:
             //
             //  Implementation for Acquire().
             //
-            virtual Factory& Acquire(const std::string& type,
-                                     const std::string& name) = 0;
+            virtual Factory& Acquire(std::string type,
+                                     std::string name) = 0;
         };
     }
 }

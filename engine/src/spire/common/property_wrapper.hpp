@@ -17,6 +17,11 @@ namespace spire
         ///
         /// Enables a getter and setter functions to be encapsulated by a Property.
         ///
+        /// @param T Type to get and set.
+        /// @param C Host class.
+        /// @param G Getter method.
+        /// @param S Setter method.
+        ///
         template <typename T, typename C, T (C::*G)(void) const, void (C::*S)(T)>
         class PropertyWrapper
         {

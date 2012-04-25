@@ -20,7 +20,8 @@ namespace spire
         class Service;
 
         ///
-        /// Exception thrown when an attempt to acquire a service fails.
+        /// Exception thrown when an attempt to acquire a service fails
+        /// because no service implementation was registered.
         /// 
         typedef Error<struct _ServiceNotFoundError, RuntimeError> ServiceNotFoundError;
 

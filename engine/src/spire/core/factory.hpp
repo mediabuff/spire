@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// @file spire/core/factory.hpp
-/// Defines the Factory and BasicFactory classes.
+/// Defines the Factory and FactoryInterface classes.
 /// @addtogroup core
 /// @{
 
@@ -20,28 +20,40 @@ namespace spire
         ///
         /// Base class for all factories.
         ///
-        class Factory : public PropertyHost,
-                        public boost::noncopyable
+        class Factory : public PropertyHost
         {
         public:
             ///
             /// Destructor.
             ///
             virtual ~Factory() = 0 { };
+
+            ///
+            /// Returns the factory interface type name.
+            ///
+            /// This is equivalent to typeid(T).name(), where T is the
+            /// specialization of FactoryInterface.
+            ///
+            virtual const char* GetInterfaceType() const = 0;
+
+            ///
+            /// Clones the factory.
+            ///
+            virtual std::unique_ptr<Factory> Clone() const = 0;
         };
 
         //
-        //  Helper class for implementing BasicFactory with a zero parameter
+        //  Helper class for implementing FactoryInterface with a zero parameter
         //  function signature.
         //
         template <typename F, size_t Arity>
-        class BasicFactoryHelper
+        class FactoryInterfaceHelper
         {
             static_assert(Arity >= 4, "Factory signatures with more than 4 parameters are not supported.");
         };
 
         template <typename F>
-        class BasicFactoryHelper<F, 0> : public Factory
+        class FactoryInterfaceHelper<F, 0> : public Factory
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -50,7 +62,7 @@ namespace spire
         };
 
         template <typename F>
-        class BasicFactoryHelper<F, 1> : public Factory
+        class FactoryInterfaceHelper<F, 1> : public Factory
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -60,7 +72,7 @@ namespace spire
         };
 
         template <typename F>
-        class BasicFactoryHelper<F, 2> : public Factory
+        class FactoryInterfaceHelper<F, 2> : public Factory
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -71,7 +83,7 @@ namespace spire
         };
 
         template <typename F>
-        class BasicFactoryHelper<F, 3> : public Factory
+        class FactoryInterfaceHelper<F, 3> : public Factory
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -83,7 +95,7 @@ namespace spire
         };
 
         template <typename F>
-        class BasicFactoryHelper<F, 4> : public Factory
+        class FactoryInterfaceHelper<F, 4> : public Factory
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -101,8 +113,25 @@ namespace spire
         /// @tparam F Function signature for the Construct method.
         ///
         template <typename F>
-        class BasicFactory : public BasicFactoryHelper<F, boost::function_types::function_arity<F>::value>
+        class FactoryInterface : public FactoryInterfaceHelper<F, boost::function_types::function_arity<F>::value>
         {
+        };
+
+        ///
+        /// Mixin for implementing Factory classes.
+        ///
+        /// @tparam T Inheriting type.
+        /// @tparam I FactoryInterface specialization to inherit from.
+        ///
+        template <typename T, typename I>
+        class BasicFactory : public I
+        {
+        public:
+            ///
+            /// From Factory.
+            ///
+            virtual const char* GetInterfaceType() const;
+            virtual std::unique_ptr<Factory> Clone() const;
         };
     }
 }
