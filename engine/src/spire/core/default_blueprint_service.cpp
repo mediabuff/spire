@@ -4,6 +4,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "prefix.hpp"
+#include "spire/common/property.hpp"
+#include "spire/common/xml_serializer.hpp"
 #include "spire/core/blueprint.hpp"
 #include "spire/core/default_blueprint_service.hpp"
 
@@ -37,7 +39,7 @@ Blueprint& DefaultBlueprintService::Acquire(std::string type,
             return *j->second;
         }
     }
-    throw BlueprintNotFoundError(boost::format("No factory was found for \"%s\" (\"%s\")")
+    throw BlueprintNotFoundError(boost::format("No blueprint was found for \"%s\" (\"%s\")")
                                  % name
                                  % type);
 }
@@ -57,6 +59,25 @@ void DefaultBlueprintService::Parse(std::vector<char> src)
              node != nullptr; 
              node = node->next_sibling())
         {
+            auto nameAttr = node->first_attribute("name", 0, false);
+            if (!nameAttr || !nameAttr->value_size())
+            {
+                throw BlueprintParsingError("Missing \"name\" attribute");
+            }
+            auto clone = GetPrototype(node->name()).Clone();
+            *node >> XmlSerializer(*clone);
+            m_blueprintMap[clone->GetInterfaceType()][nameAttr->value()] = std::move(clone);
         }
     }
+}
+
+const Blueprint& DefaultBlueprintService::GetPrototype(const std::string& type)
+{
+    auto i = m_prototypeMap.find(type);
+    if (i == m_prototypeMap.end())
+    {
+        throw BlueprintPrototypeNotFoundError(boost::format("No prototype was registered for \"%s\"")
+                                              % type);
+    }
+    return *i->second;
 }

@@ -142,6 +142,7 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\core\tests\prefix.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\engine\src\spire\core\tests\blueprint_tests.cpp" />
     <ClCompile Include="..\..\..\..\engine\src\spire\core\tests\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

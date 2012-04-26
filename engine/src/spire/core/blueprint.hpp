@@ -133,8 +133,11 @@ namespace spire
             virtual const char* GetInterfaceType() const;
             virtual std::unique_ptr<Blueprint> Clone() const;
         };
-    }
-}
+    }   //  namespace spire
+    using core::Blueprint;
+    using core::BlueprintInterface;
+    using core::BasicBlueprint;
+}   //  namespace spire
 
 #endif  //  SPIRE_CORE_BLUEPRINT_HPP
 

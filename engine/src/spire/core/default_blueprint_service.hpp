@@ -41,6 +41,7 @@ namespace spire
             virtual Blueprint& Acquire(std::string type,
                                        std::string name);
             virtual void Parse(std::vector<char> src);
+            virtual const Blueprint& GetPrototype(const std::string& type);
             //! @}
         
         private:

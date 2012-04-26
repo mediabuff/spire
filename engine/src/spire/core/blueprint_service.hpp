@@ -26,6 +26,12 @@ namespace spire
         typedef Error<struct _BlueprintNotFoundError, RuntimeError> BlueprintNotFoundError;
 
         ///
+        /// Exception thrown when an attempt to acquire a blueprint prototype
+        /// fails because no prototype was registered for the given type.
+        ///
+        typedef Error<struct _BlueprintPrototypeNotFoundError, RuntimeError> BlueprintPrototypeNotFoundError;
+
+        ///
         /// Exception thrown when XML parsing fails.
         ///
         typedef Error<struct _BlueprintParsingError, DataError> BlueprintParsingError;
@@ -61,7 +67,7 @@ namespace spire
             ///
             /// @param name Name of the blueprint type.
             ///
-            virtual const Blueprint& GetPrototype(const std::string& type);
+            virtual const Blueprint& GetPrototype(const std::string& type) = 0;
 
             ///
             /// Acquires a factory.
@@ -76,8 +82,8 @@ namespace spire
             /// Parses XML blueprint definitions.
             ///
             /// @param src XML source.
-            /// @throw BlueprintParsingError An error occured while parsing
-            ///                              the XML source.
+            /// @throw BlueprintParsingError An error occured while parsing.
+            ///
             virtual void Parse(std::vector<char> src) = 0;
 
         protected:
@@ -87,8 +93,9 @@ namespace spire
             virtual Blueprint& Acquire(std::string type,
                                        std::string name) = 0;
         };
-    }
-}
+    }   //  namespace core
+    using core::BlueprintService;
+}   //  namespace spire
 
 #include "spire/core/blueprint_service.inl"
 
