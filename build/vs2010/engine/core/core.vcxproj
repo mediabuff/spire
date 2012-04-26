@@ -139,16 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_factory_service.hpp" />
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory_service.hpp" />
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint.hpp" />
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint_service.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\framework.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\prefix.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\service.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_factory_service.cpp" />
+    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.cpp" />
     <ClCompile Include="..\..\..\..\engine\src\spire\core\default_framework.cpp" />
     <ClCompile Include="..\..\..\..\engine\src\spire\core\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -158,8 +158,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\engine\src\spire\core\factory.inl" />
-    <None Include="..\..\..\..\engine\src\spire\core\factory_service.inl" />
+    <None Include="..\..\..\..\engine\src\spire\core\blueprint.inl" />
+    <None Include="..\..\..\..\engine\src\spire\core\blueprint_service.inl" />
     <None Include="..\..\..\..\engine\src\spire\core\framework.inl" />
     <None Include="..\..\..\..\engine\src\spire\core\service.inl" />
   </ItemGroup>

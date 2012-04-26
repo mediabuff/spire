@@ -3,13 +3,13 @@
 //  See accompanying LICENSE file for full license information.
 ////////////////////////////////////////////////////////////////////////////////
 ///
-/// @file spire/core/factory.hpp
-/// Defines the Factory and FactoryInterface classes.
+/// @file spire/core/blueprint.hpp
+/// Defines the Blueprint and BlueprintInterface classes.
 /// @addtogroup core
 /// @{
 
-#ifndef SPIRE_CORE_FACTORY_HPP
-#define SPIRE_CORE_FACTORY_HPP
+#ifndef SPIRE_CORE_BLUEPRINT_HPP
+#define SPIRE_CORE_BLUEPRINT_HPP
 
 #include "spire/common/property.hpp"
 
@@ -18,42 +18,42 @@ namespace spire
     namespace core
     {
         ///
-        /// Base class for all factories.
+        /// Base class for Blueprint classes.
         ///
-        class Factory : public PropertyHost
+        class Blueprint : public PropertyHost
         {
         public:
             ///
             /// Destructor.
             ///
-            virtual ~Factory() = 0 { };
+            virtual ~Blueprint() = 0 { };
 
             ///
-            /// Returns the factory interface type name.
+            /// Returns the prototype interface type name.
             ///
             /// This is equivalent to typeid(T).name(), where T is the
-            /// specialization of FactoryInterface.
+            /// specialization of BlueprintInterface.
             ///
             virtual const char* GetInterfaceType() const = 0;
 
             ///
-            /// Clones the factory.
+            /// Clones the prototype.
             ///
-            virtual std::unique_ptr<Factory> Clone() const = 0;
+            virtual std::unique_ptr<Blueprint> Clone() const = 0;
         };
 
         //
-        //  Helper class for implementing FactoryInterface with a zero parameter
+        //  Helper class for implementing BlueprintInterface with a zero parameter
         //  function signature.
         //
         template <typename F, size_t Arity>
-        class FactoryInterfaceHelper
+        class BlueprintInterfaceHelper
         {
-            static_assert(Arity >= 4, "Factory signatures with more than 4 parameters are not supported.");
+            static_assert(Arity >= 4, "Signatures with more than 4 parameters are not supported.");
         };
 
         template <typename F>
-        class FactoryInterfaceHelper<F, 0> : public Factory
+        class BlueprintInterfaceHelper<F, 0> : public Blueprint
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -62,7 +62,7 @@ namespace spire
         };
 
         template <typename F>
-        class FactoryInterfaceHelper<F, 1> : public Factory
+        class BlueprintInterfaceHelper<F, 1> : public Blueprint
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -72,7 +72,7 @@ namespace spire
         };
 
         template <typename F>
-        class FactoryInterfaceHelper<F, 2> : public Factory
+        class BlueprintInterfaceHelper<F, 2> : public Blueprint
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -83,7 +83,7 @@ namespace spire
         };
 
         template <typename F>
-        class FactoryInterfaceHelper<F, 3> : public Factory
+        class BlueprintInterfaceHelper<F, 3> : public Blueprint
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -95,7 +95,7 @@ namespace spire
         };
 
         template <typename F>
-        class FactoryInterfaceHelper<F, 4> : public Factory
+        class BlueprintInterfaceHelper<F, 4> : public Blueprint
         {
         public:
             typedef typename boost::function_types::result_type<F>::type ResultType;
@@ -108,33 +108,33 @@ namespace spire
         };
 
         ///
-        /// Interface for a Factory which produces objects of a given type.
+        /// Interface for a Blueprint which produces objects of a given type.
         ///
         /// @tparam F Function signature for the Construct method.
         ///
         template <typename F>
-        class FactoryInterface : public FactoryInterfaceHelper<F, boost::function_types::function_arity<F>::value>
+        class BlueprintInterface : public BlueprintInterfaceHelper<F, boost::function_types::function_arity<F>::value>
         {
         };
 
         ///
-        /// Mixin for implementing Factory classes.
+        /// Mixin for implementing Blueprint classes.
         ///
         /// @tparam T Inheriting type.
-        /// @tparam I FactoryInterface specialization to inherit from.
+        /// @tparam I BlueprintInterface specialization to inherit from.
         ///
         template <typename T, typename I>
-        class BasicFactory : public I
+        class BasicBlueprint : public I
         {
         public:
             ///
-            /// From Factory.
+            /// From Blueprint.
             ///
             virtual const char* GetInterfaceType() const;
-            virtual std::unique_ptr<Factory> Clone() const;
+            virtual std::unique_ptr<Blueprint> Clone() const;
         };
     }
 }
 
-#endif  //  SPIRE_CORE_FACTORY_HPP
+#endif  //  SPIRE_CORE_BLUEPRINT_HPP
 

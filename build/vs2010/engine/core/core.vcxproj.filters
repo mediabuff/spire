@@ -23,13 +23,13 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory_service.hpp">
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp">
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_factory_service.hpp">
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -40,7 +40,7 @@
     <ClCompile Include="..\..\..\..\engine\src\spire\core\default_framework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_factory_service.cpp">
+    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,10 +51,10 @@
     <None Include="..\..\..\..\engine\src\spire\core\framework.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\core\factory.inl">
+    <None Include="..\..\..\..\engine\src\spire\core\blueprint_service.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\core\factory_service.inl">
+    <None Include="..\..\..\..\engine\src\spire\core\blueprint.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
