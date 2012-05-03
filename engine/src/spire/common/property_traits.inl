@@ -116,6 +116,7 @@ namespace spire
         //  Macro for defining EnumTraits implementations.
         //
 #define BEGIN_ENUM_LABELS(x)                                                    \
+        inline class x ## _EnumTraits GetEnumTraits(x*);                        \
         class x ## _EnumTraits                                                  \
         {                                                                       \
         public:                                                                 \
@@ -127,7 +128,7 @@ namespace spire
 #define END_ENUM_LABELS(...)                                                    \
             }                                                                   \
         };                                                                      \
-        inline Color_EnumTraits GetEnumTraits(Color*);  
+
 
         //
         //  PropertyTraits implementation for enums.

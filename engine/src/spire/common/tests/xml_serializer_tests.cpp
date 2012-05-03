@@ -138,3 +138,42 @@ TEST(XmlSerializerTests, NamedBooleanValuesAreSerializedCorrectly)
     src >> XmlSerializer(b);
     ASSERT_FALSE(b);
 }
+
+namespace
+{
+    enum Color
+    {
+        Red = 0,
+        Blue = 1,
+        Green = 2
+    };
+
+    BEGIN_ENUM_LABELS(Color)
+        DEF_ENUM_LABEL("red", Red);
+        DEF_ENUM_LABEL("blue", Blue);
+        DEF_ENUM_LABEL("green", Green);
+    END_ENUM_LABELS()
+}
+
+TEST(XmlSerializerTests, EnumsCanSerializeByName)
+{
+    std::string src;
+    Color c;
+
+    src = "<enum>Blue</enum>";
+    c = Red;
+    src >> XmlSerializer(c);
+    ASSERT_EQ(Blue, c);
+}
+
+TEST(XmlSerializerTests, EnumsCanSerializeByValue)
+{
+    std::string src;
+    Color c;
+
+    src = "<enum>1</enum>";
+    c = Red;
+    src >> XmlSerializer(c);
+    ASSERT_EQ(Blue, c);
+}
+

@@ -89,6 +89,19 @@ const rapidxml::xml_node<>& spire::common::operator>>(const rapidxml::xml_node<>
                 p.AsString().Set(node.value());
                 break;
             }
+        case PropertyTypes::Enum:
+            {
+                int i = atoi(node.value());
+                if (i || _stricmp(node.value(), "0") == 0)
+                {
+                    p.AsEnum().Set(i);
+                }
+                else
+                {
+                    p.AsEnum().Set(node.value());
+                }
+                break;
+            }
         case PropertyTypes::Collection:
             {
                 rapidxml::xml_node<>* itemNode = node.first_node();
