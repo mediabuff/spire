@@ -14,6 +14,7 @@
 #include "spire/common/integer_property.hpp"
 #include "spire/common/real_property.hpp"
 #include "spire/common/string_property.hpp"
+#include "spire/common/enum_property.hpp"
 #include "spire/common/collection_property.hpp"
 #include "spire/common/dictionary_property.hpp"
 #include "spire/common/object_property.hpp"
@@ -37,6 +38,7 @@ namespace spire
                 Integer,                //!< Contains an IntegerProperty.
                 Real,                   //!< Contains a RealProperty.
                 String,                 //!< Contains a StringProperty.
+                Enum,                   //!< Contains an EnumProperty.
                 Collection,             //!< Contains a CollectionProperty.
                 Dictionary,             //!< Contains a DictionaryProperty.
                 Object,                 //!< Contains an ObjectProperty.
@@ -125,6 +127,15 @@ namespace spire
             //! @}
 
             ///
+            /// Returns the inner EnumProperty object.
+            ///
+            /// @throw PropertyTypeError The Property did not contain an EnumProperty.
+            /// @{
+            EnumProperty& AsEnum();
+            const EnumProperty& AsEnum() const;
+            //! @}
+
+            ///
             /// Returns the inner ObjectProperty object.
             ///
             /// @throw PropertyTypeError The Property did not contain an ObjectProperty.
@@ -163,6 +174,7 @@ namespace spire
                                    IntegerProperty,
                                    RealProperty,
                                    StringProperty,
+                                   EnumProperty,
                                    CollectionProperty,
                                    DictionaryProperty,
                                    ObjectProperty> PropertyVariant;
@@ -176,6 +188,7 @@ namespace spire
     using common::IntegerProperty;
     using common::RealProperty;
     using common::StringProperty;
+    using common::EnumProperty;
     using common::CollectionProperty;
     using common::DictionaryProperty;
     using common::ObjectProperty;
@@ -188,6 +201,7 @@ namespace spire
 #include "spire/common/integer_property.inl"
 #include "spire/common/real_property.inl"
 #include "spire/common/string_property.inl"
+#include "spire/common/enum_property.inl"
 #include "spire/common/collection_property.inl"
 #include "spire/common/dictionary_property.inl"
 #include "spire/common/object_property.inl"

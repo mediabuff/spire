@@ -76,6 +76,9 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\common\property_traits.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\engine\src\spire\common\enum_property.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\engine\src\spire\common\boolean_property.inl">
@@ -106,6 +109,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="..\..\..\..\engine\src\spire\common\string_property.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\..\..\..\engine\src\spire\common\enum_property.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

@@ -61,7 +61,6 @@ BEGIN_PROPERTY_MAP(Foo123)
     DEF_PROPERTY(c)
 END_PROPERTY_MAP()
 
-
 TEST(XmlSerializerTests, DeserializeObjectFromString)
 {
     std::string src = 
@@ -112,4 +111,30 @@ TEST(XmlSerializerTests, DeserializeCompositeObjectFromString)
     ASSERT_EQ(obj.inners.size(), 2);
     ASSERT_EQ(obj.inners[0].a, 1);
     ASSERT_EQ(obj.inners[1].a, 2);
+}
+
+TEST(XmlSerializerTests, NamedBooleanValuesAreSerializedCorrectly)
+{
+    std::string src;
+    bool b;
+
+    src = "<bool>true</bool>";
+    b = false;
+    src >> XmlSerializer(b);
+    ASSERT_TRUE(b);
+
+    src = "<bool>false</bool>";
+    b = true;
+    src >> XmlSerializer(b);
+    ASSERT_FALSE(b);
+
+    src = "<bool>TrUe</bool>";
+    b = false;
+    src >> XmlSerializer(b);
+    ASSERT_TRUE(b);
+
+    src = "<bool>fALse</bool>";
+    b = true;
+    src >> XmlSerializer(b);
+    ASSERT_FALSE(b);
 }

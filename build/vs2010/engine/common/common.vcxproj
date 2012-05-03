@@ -33,6 +33,7 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\common\boolean_property.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\common\collection_property.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\common\dictionary_property.hpp" />
+    <ClInclude Include="..\..\..\..\engine\src\spire\common\enum_property.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\common\exception.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\common\get_framework.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\common\integer_property.hpp" />
@@ -52,6 +53,7 @@
     <None Include="..\..\..\..\engine\src\spire\common\boolean_property.inl" />
     <None Include="..\..\..\..\engine\src\spire\common\collection_property.inl" />
     <None Include="..\..\..\..\engine\src\spire\common\dictionary_property.inl" />
+    <None Include="..\..\..\..\engine\src\spire\common\enum_property.inl" />
     <None Include="..\..\..\..\engine\src\spire\common\integer_property.inl" />
     <None Include="..\..\..\..\engine\src\spire\common\object_property.inl" />
     <None Include="..\..\..\..\engine\src\spire\common\property.inl" />

@@ -656,3 +656,40 @@ TEST(PropertyTests, StringPropertyEncapsulatesConstCharPtrPropertyWrapper)
     ASSERT_STREQ(p.AsString().Get(), "foobar");
     ASSERT_STREQ(f.value, "foobar");
 }
+
+namespace
+{
+    enum Color
+    {
+        Red = 0,
+        Blue = 1,
+        Green = 2
+    };
+
+    BEGIN_ENUM_LABELS(Color)
+        DEF_ENUM_LABEL("red", Red);
+        DEF_ENUM_LABEL("blue", Blue);
+        DEF_ENUM_LABEL("green", Green);
+    END_ENUM_LABELS()
+}
+
+TEST(PropertyTests, EnumPropertyCanSetByValue)
+{
+    Color c = Red;
+    Property p = c;
+    p.AsEnum().Set(Blue);
+    ASSERT_EQ(Blue, c);
+    ASSERT_EQ(static_cast<int>(Blue), p.AsEnum().Get());
+}
+
+TEST(PropertyTests, EnumPropertyCanSetByLabel)
+{
+    Color c = Red;
+    Property p = c;
+    p.AsEnum().Set("blue");
+    ASSERT_EQ(Blue, c);
+    ASSERT_STREQ("blue", p.AsEnum().GetString());
+    p.AsEnum().Set("GREEN");
+    ASSERT_EQ(Green, c);
+    ASSERT_STREQ("green", p.AsEnum().GetString());
+}

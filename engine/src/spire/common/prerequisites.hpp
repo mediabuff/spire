@@ -37,6 +37,7 @@
 #include <boost/function_types/function_arity.hpp>
 #include <boost/function_types/parameter_types.hpp>
 #include <boost/function_types/result_type.hpp>
+#include <boost/lexical_cast.hpp>
 #include <boost/type_traits.hpp>
 #include <boost/utility.hpp>
 #include <boost/variant.hpp>

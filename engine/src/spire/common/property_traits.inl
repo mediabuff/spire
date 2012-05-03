@@ -113,6 +113,77 @@ namespace spire
         };
 
         //
+        //  Macro for defining EnumTraits implementations.
+        //
+#define BEGIN_ENUM_LABELS(x)                                                    \
+        class x ## _EnumTraits                                                  \
+        {                                                                       \
+        public:                                                                 \
+            template <typename T>                                               \
+            static void EnumerateLabels(T& fn)                                  \
+            {                                                                   
+#define DEF_ENUM_LABEL(str, val)                                                \
+                if (!fn(str, static_cast<int>(val))) return;                              
+#define END_ENUM_LABELS(...)                                                    \
+            }                                                                   \
+        };                                                                      \
+        inline Color_EnumTraits GetEnumTraits(Color*);  
+
+        //
+        //  PropertyTraits implementation for enums.
+        //
+        template <typename T>
+        class PropertyTraits<T, typename boost::enable_if<boost::is_enum<T>>::type>
+        {
+        public:
+            typedef EnumProperty PropertyType;
+            typedef T& ReferenceType;
+
+            static int Get(const T& e)
+            {
+                return static_cast<int>(e);
+            }
+            static const char* GetString(const T& e)
+            {
+                //  Note: an error here means you didn't define the enum traits
+                //  using the BEGIN_ENUM_LABELS()/DEF_LABEL()/END_ENUM_LABELS() macro
+                typedef decltype(GetEnumTraits(static_cast<T*>(nullptr))) EnumTraits;
+                const char* label = nullptr;
+                EnumTraits::EnumerateLabels([&] (const char* str, int val) -> bool
+                {
+                    if (val == static_cast<int>(e))
+                    {
+                        label = str;
+                        return false;
+                    }
+                    return true;
+                });
+                assert(label);
+                return label;
+            }
+            static void Set(T& e, int v)
+            {
+                e = static_cast<T>(v);
+            }
+            static void Set(T& e, const char* label)
+            {
+                typedef decltype(GetEnumTraits(static_cast<T*>(nullptr))) EnumTraits;
+                bool found = false;
+                EnumTraits::EnumerateLabels([&] (const char* str, int val) -> bool
+                {
+                    if (_stricmp(str, label) == 0)
+                    {
+                        e = static_cast<T>(val);
+                        found = true;
+                        return false;
+                    }
+                    return true;
+                });
+                assert(found);
+            }
+        };
+
+        //
         //  PropertyTraits implementation for floating-point types.
         //
         template <typename T>
@@ -467,7 +538,6 @@ namespace spire
                 return result;                                                  \
             }                                                                   \
         };
-
     }
 }
 

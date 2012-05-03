@@ -116,6 +116,26 @@ namespace spire
             return *ptr;
         }
 
+        inline EnumProperty& Property::AsEnum()
+        {
+            auto ptr = boost::get<EnumProperty>(&m_variant);
+            if (!ptr)
+            {
+                throw PropertyTypeError("Not an EnumProperty");
+            }
+            return *ptr;
+        }
+
+        inline const EnumProperty& Property::AsEnum() const
+        {
+            auto ptr = boost::get<EnumProperty>(&m_variant);
+            if (!ptr)
+            {
+                throw PropertyTypeError("Not an EnumProperty");
+            }
+            return *ptr;
+        }
+
         inline CollectionProperty& Property::AsCollection()
         {
             auto ptr = boost::get<CollectionProperty>(&m_variant);

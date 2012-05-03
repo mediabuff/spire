@@ -57,9 +57,10 @@ namespace spire
         ///
         /// @tparam C Inheriting type.
         /// @tparam T Concrete type constructed by this blueprint.
+        //  @tparam I Type to inherit from.
         ///
-        template <typename C, typename T>
-        class BasicBlueprint : public BlueprintInterface<T>
+        template <typename C, typename T, typename I = BlueprintInterface<T>>
+        class BasicBlueprint : public I
         {
         public:
             ///
@@ -72,6 +73,7 @@ namespace spire
         };
     }   //  namespace spire
     using core::Blueprint;
+    using core::BlueprintInterface;
     using core::BasicBlueprint;
 }   //  namespace spire
 

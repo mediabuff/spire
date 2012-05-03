@@ -15,14 +15,14 @@ namespace spire
 {
     namespace core
     {
-        template <typename C, typename T>
-        std::unique_ptr<Blueprint> BasicBlueprint<C, T>::Clone() const
+        template <typename C, typename T, typename I>
+        std::unique_ptr<Blueprint> BasicBlueprint<C, T, I>::Clone() const
         {
             return std::unique_ptr<Blueprint>(new C(*static_cast<const C*>(this)));
         }
 
-        template <typename C, typename T>
-        const char* BasicBlueprint<C, T>::GetType() const
+        template <typename C, typename T, typename I>
+        const char* BasicBlueprint<C, T, typename I>::GetType() const
         {
             return typeid(T).name();
         }

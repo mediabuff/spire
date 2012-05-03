@@ -51,11 +51,19 @@ const rapidxml::xml_node<>& spire::common::operator>>(const rapidxml::xml_node<>
         {
         case PropertyTypes::Boolean: 
             {
-                bool b;
-                ss << node.value();
-                ss >> b;
-                p.AsBool().Set(b);
-                ss.clear();
+                if (_stricmp(node.value(), "true") == 0 || strcmp(node.value(), "1") == 0)
+                {
+                    p.AsBool().Set(true);
+                }
+                else if (_stricmp(node.value(), "false") == 0 || strcmp(node.value(), "0") == 0)
+                {
+                    p.AsBool().Set(false);
+                }
+                else
+                {
+                    throw XmlParseError(boost::format("Failed to interpret \"%s\" as bool")
+                                        % node.value());
+                }
                 break;
             }
         case PropertyTypes::Integer:

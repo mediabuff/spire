@@ -17,6 +17,11 @@ namespace spire
     namespace common
     {
         ///
+        /// Thrown when a parse error occurs during serialization.
+        ///
+        typedef Error<struct _XmlParseError, DataError> XmlParseError;
+
+        ///
         /// Serializes properties to and from XML.
         ///
         class XmlSerializer
