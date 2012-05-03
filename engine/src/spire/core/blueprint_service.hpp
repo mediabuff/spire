@@ -11,6 +11,7 @@
 #ifndef SPIRE_CORE_BLUEPRINT_SERVICE_HPP
 #define SPIRE_CORE_BLUEPRINT_SERVICE_HPP
 
+#include "spire/core/factory.hpp"
 #include "spire/core/service.hpp"
 
 namespace spire
@@ -18,6 +19,7 @@ namespace spire
     namespace core
     {
         class Blueprint;
+        template <typename T> class BlueprintInterface;
 
         ///
         /// Exception thrown when an attempt to acquire a blueprint fails
@@ -70,13 +72,13 @@ namespace spire
             virtual const Blueprint& GetPrototype(const std::string& type) = 0;
 
             ///
-            /// Acquires a factory.
+            /// Acquires a blueprint.
             ///
-            /// @tparam Blueprint interface.
+            /// @tparam T Type constructed by the blueprint.
             /// @param name Name of the blueprint to acquire.
             ///
             template <typename T>
-            T& Acquire(std::string name);
+            const BlueprintInterface<T>& Acquire(const std::string& name);
 
             ///
             /// Parses XML blueprint definitions.
@@ -90,11 +92,17 @@ namespace spire
             //
             //  Implementation for Acquire().
             //
-            virtual Blueprint& Acquire(std::string type,
-                                       std::string name) = 0;
+            virtual const Blueprint& AcquireBlueprint(const std::string& type,
+                                                      const std::string& name) = 0;
         };
+
+        ///
+        /// Factory interface for constructing BlueprintService instances.
+        ///
+        typedef FactoryInterface<std::unique_ptr<BlueprintService>()> BlueprintServiceFactory;
     }   //  namespace core
     using core::BlueprintService;
+    using core::BlueprintServiceFactory;
 }   //  namespace spire
 
 #include "spire/core/blueprint_service.inl"

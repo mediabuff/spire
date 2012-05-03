@@ -25,5 +25,8 @@
     <ClCompile Include="..\..\..\..\engine\src\spire\core\tests\blueprint_tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\engine\src\spire\core\tests\factory_tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -32,6 +32,9 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\engine\src\spire\core\prefix.cpp">

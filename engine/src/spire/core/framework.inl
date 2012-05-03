@@ -16,19 +16,32 @@ namespace spire
     namespace core
     {
         template <typename T>
-        inline void Framework::Register(T* svcPtr)
+        inline void Framework::Register(Service* svcPtr)
         {
-            RegisterUntyped(typeid(T).name(), svcPtr);
+            RegisterService(typeid(T).name(), svcPtr);
         }
 
         template <typename T>
         inline T& Framework::Acquire()
         {
-            Service& typedSvc = AcquireUntyped(typeid(T).name());
-            return dynamic_cast<T&>(typedSvc);
+            Service& svc = AcquireService(typeid(T).name());
+            return *static_cast<T*>(&svc);
         }
-    }
-}
+
+        template <typename T>
+        inline T& Framework::Acquire(const std::string& name)
+        {
+            Factory& factory = AcquireFactory(name);
+            T* ptr = dynamic_cast<T*>(&factory);
+            if (!ptr)
+            {
+                throw FactoryTypeError(boost::format("Type not supported for factory \"%s\"")
+                                       % name);
+            }
+            return *ptr;
+        }
+    }   //  namespace core
+}   //  namespace spire
 
 #endif  //  SPIRE_CORE_FRAMEWORK_INL
 

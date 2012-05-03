@@ -12,6 +12,19 @@
 using namespace spire;
 using namespace core;
 
+namespace
+{
+    struct AutoRegisterFactories
+    {
+        AutoRegisterFactories()
+        {
+            GetFramework().Register(std::unique_ptr<Factory>(new BasicFactory<DefaultBlueprintService, BlueprintServiceFactory>()),
+                                    "DefaultBlueprintService");
+        }
+    };
+}
+AutoRegisterFactories autoreg;
+
 DefaultBlueprintService::DefaultBlueprintService()
 {
 }
@@ -27,8 +40,8 @@ void DefaultBlueprintService::Register(std::string name,
                                          std::move(prototype)));
 }
 
-Blueprint& DefaultBlueprintService::Acquire(std::string type,
-                                            std::string name)
+const Blueprint& DefaultBlueprintService::AcquireBlueprint(const std::string& type,
+                                                           const std::string& name)
 {
     auto i = m_blueprintMap.find(type);
     if (i != m_blueprintMap.end())
@@ -66,7 +79,7 @@ void DefaultBlueprintService::Parse(std::vector<char> src)
             }
             auto clone = GetPrototype(node->name()).Clone();
             *node >> XmlSerializer(*clone);
-            m_blueprintMap[clone->GetInterfaceType()][nameAttr->value()] = std::move(clone);
+            m_blueprintMap[clone->GetType()][nameAttr->value()] = std::move(clone);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace spire
 {
     namespace core
     {
+        class Factory;
         class Service;
 
         ///
@@ -30,6 +31,19 @@ namespace spire
         /// one service instance under a single type.
         ///
         typedef Error<struct _ServiceAlreadyRegisteredError, RuntimeError> ServiceAlreadyRegisteredError;
+
+        ///
+        /// Exception thrown when an attempt to acquire a factory fails
+        /// because no factory was registered under that name.
+        ///
+        typedef Error<struct _FactoryNotFoundError, RuntimeError> FactoryNotFoundError;
+
+        ///
+        /// Exception thrown when an attempt to acquire a factory fails
+        /// because the requested factory interface is not supported by
+        /// the factory under that particular name.
+        ///
+        typedef Error<struct _FactoryTypeError, RuntimeError> FactoryTypeError;
 
         ///
         /// Global service broker and facilitator.
@@ -72,7 +86,27 @@ namespace spire
             ///            unregistered.   
             ///
             template <typename T>
-            void Register(T* svc);
+            void Register(Service* svc);
+
+            ///
+            /// Acquires a factory.
+            ///
+            /// @tparam T Requested factory interface.
+            /// @param name Name of the factory to acquire.
+            ///
+            template <typename T>
+            T& Acquire(const std::string& name);
+
+            ///
+            /// Registers a factory.
+            ///
+            /// @param factory Factory instance. The framework will take ownership
+            ///                of the factory. If null, any existing factory
+            ///                registered under the given name will be unregistered.
+            /// @param name Name to register the factory under.
+            ///
+            virtual void Register(std::unique_ptr<Factory> factory,
+                                  std::string name) = 0;
             
         protected:
             ///
@@ -81,8 +115,9 @@ namespace spire
             virtual ~Framework() = 0 { };
 
         private:
-            virtual void RegisterUntyped(std::string type, Service* svc) = 0;
-            virtual Service& AcquireUntyped(std::string type) = 0;
+            virtual Factory& AcquireFactory(const std::string& name) = 0;
+            virtual void RegisterService(std::string type, Service* svc) = 0;
+            virtual Service& AcquireService(const std::string& type) = 0;
         };
     }   //  namespace core
     using core::Framework;

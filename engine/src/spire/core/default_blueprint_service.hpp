@@ -38,8 +38,8 @@ namespace spire
             /// @{
             virtual void Register(std::string name,
                                   std::unique_ptr<Blueprint> prototype);
-            virtual Blueprint& Acquire(std::string type,
-                                       std::string name);
+            virtual const Blueprint& AcquireBlueprint(const std::string& type,
+                                                      const std::string& name);
             virtual void Parse(std::vector<char> src);
             virtual const Blueprint& GetPrototype(const std::string& type);
             //! @}

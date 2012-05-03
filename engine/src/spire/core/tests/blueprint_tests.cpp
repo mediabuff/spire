@@ -6,7 +6,8 @@
 #include "prefix.hpp"
 #include "spire/common/property.hpp"
 #include "spire/core/blueprint.hpp"
-#include "spire/core/default_blueprint_service.hpp"
+#include "spire/core/blueprint_service.hpp"
+#include "spire/core/service.hpp"
 
 using namespace spire;
 
@@ -18,12 +19,10 @@ namespace
         int b;
     };
 
-    typedef BlueprintInterface<std::unique_ptr<Foo>(void)> FooBlueprintInterface;
-
-    class FooBlueprint : public BasicBlueprint<FooBlueprint, FooBlueprintInterface>
+    class FooBlueprint : public BasicBlueprint<FooBlueprint, Foo>
     {
     public:
-        virtual std::unique_ptr<Foo> Construct()
+        virtual std::unique_ptr<Foo> Construct() const
         {
             std::unique_ptr<Foo> ptr(new Foo());
             ptr->a = a;
@@ -44,12 +43,13 @@ namespace
 
 TEST(BlueprintTests, aaa)
 {
-    core::DefaultBlueprintService svc;
-    svc.Register("foo", new FooBlueprint());
+    auto svc = GetFramework().Acquire<BlueprintServiceFactory>("DefaultBlueprintService").Construct();
+    svc->Register("foo", std::unique_ptr<Blueprint>(new FooBlueprint()));
     
     const char* xml =
         "<blueprints>\n"
         "   <foo name=\"one\">\n"
+        "       <a>1</b>\n"
         "       <b>2</b>\n"
         "   </foo>\n"
         "   <foo name=\"two\">\n"
@@ -57,15 +57,13 @@ TEST(BlueprintTests, aaa)
         "       <b>4</b>\n"
         "   </foo>\n"
         "</blueprints>\n";
-    std::vector<char> buf;
-    buf.resize(strlen(xml) + 1);
-    std::copy(xml, xml + strlen(xml) + 1, buf);
-    svc.Parse(std::move(buf));
+    std::vector<char> buf(xml, xml + strlen(xml) + 1);
+    svc->Parse(std::move(buf));
 
-    auto one = svc.Acquire<FooBlueprintInterface>("one").Construct();
-    ASSERT_EQ(one.a, 1);
-    ASSERT_EQ(one.b, 2);
-    auto two = svc.Acquire<FooBlueprintInterface>("two").Construct();
-    ASSERT_EQ(two.a, 2);
-    ASSERT_EQ(two.b, 4);
+    auto one = svc->Acquire<Foo>("one").Construct();
+    ASSERT_EQ(one->a, 1);
+    ASSERT_EQ(one->b, 2);
+    auto two = svc->Acquire<Foo>("two").Construct();
+    ASSERT_EQ(two->a, 2);
+    ASSERT_EQ(two->b, 4);
 }

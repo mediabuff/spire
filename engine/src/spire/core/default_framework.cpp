@@ -6,6 +6,7 @@
 #include "prefix.hpp"
 #include "spire/common/version.hpp"
 #include "spire/core/default_framework.hpp"
+#include "spire/core/factory.hpp"
 #include "spire/core/service.hpp"
 
 using namespace spire;
@@ -34,7 +35,7 @@ DefaultFramework::~DefaultFramework()
     m_servicePtrs.clear();
 }
 
-void DefaultFramework::RegisterUntyped(std::string type, Service* svc)
+void DefaultFramework::RegisterService(std::string type, Service* svc)
 {
     auto i = m_serviceMap.find(type);
     if (svc)
@@ -55,7 +56,7 @@ void DefaultFramework::RegisterUntyped(std::string type, Service* svc)
     }
 }
 
-Service& DefaultFramework::AcquireUntyped(std::string type)
+Service& DefaultFramework::AcquireService(const std::string& type)
 {
     auto i = m_serviceMap.find(type);
     if (i == m_serviceMap.end())
@@ -69,4 +70,20 @@ Service& DefaultFramework::AcquireUntyped(std::string type)
 void DefaultFramework::Attach(std::unique_ptr<Service> svc)
 {
     m_servicePtrs.push_back(std::move(svc));
+}
+
+void DefaultFramework::Register(std::unique_ptr<Factory> factory, std::string name)
+{
+    m_factoryMap[std::move(name)] = std::move(factory);
+}
+
+Factory& DefaultFramework::AcquireFactory(const std::string& name)
+{
+    auto i = m_factoryMap.find(name);
+    if (i == m_factoryMap.end())
+    {
+        throw FactoryNotFoundError(boost::format("No factory named \"%s\" was registered")
+                                   % name);
+    }
+    return *i->second;
 }

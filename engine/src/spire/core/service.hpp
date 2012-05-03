@@ -11,6 +11,8 @@
 #ifndef SPIRE_CORE_SERVICE_HPP
 #define SPIRE_CORE_SERVICE_HPP
 
+#include "spire/core/factory.hpp"
+
 namespace spire
 {
     namespace core

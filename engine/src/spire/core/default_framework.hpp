@@ -37,13 +37,16 @@ namespace spire
             /// Inherited from Framework.
             /// @{
             virtual void Attach(std::unique_ptr<Service> svc);
-            virtual void RegisterUntyped(std::string type, Service* svc);
-            virtual Service& AcquireUntyped(std::string type);
+            virtual void RegisterService(std::string type, Service* svc);
+            virtual Service& AcquireService(const std::string& type);
+            virtual Factory& AcquireFactory(const std::string& name);
+            virtual void Register(std::unique_ptr<Factory> factory, std::string name);
             //! @}
 
         private:
             std::vector<std::unique_ptr<Service>> m_servicePtrs;
             std::map<std::string, Service*> m_serviceMap;
+            std::map<std::string, std::unique_ptr<Factory>> m_factoryMap;
         };
     }
 }

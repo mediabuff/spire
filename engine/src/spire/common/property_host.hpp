@@ -27,14 +27,14 @@ namespace spire
 
         //  Workaround for a bug in VS2010 where decltype(*this) causes an ICE
         template <typename T>
-        T RemovePointer(T*);
+        T& PtrToRef(T*);
 
 #define BEGIN_HOST_PROPERTY_MAP(...) \
         template <typename T, typename Enabler> friend class spire::common::InheritProperties;            \
         void EnumeratePropertiesNonVirtual(spire::common::ObjectPropertyEnumerator& e)    \
         {                                                                               \
-            typedef decltype(spire::common::RemovePointer(this)) _Self;               \
-            _Self& obj = *this; 
+            typedef decltype(spire::common::PtrToRef(this)) _Self;               \
+            _Self obj = *this; 
 #define END_HOST_PROPERTY_MAP(...) \
         }                                                                               \
         virtual void EnumerateProperties(spire::common::ObjectPropertyEnumerator& e) \

@@ -16,9 +16,10 @@ namespace spire
     namespace core
     {
         template <typename T>
-        inline T& BlueprintService::Acquire(std::string name)
+        inline const BlueprintInterface<T>& BlueprintService::Acquire(const std::string& name)
         {
-            return dynamic_cast<T&>(Acquire(typeid(T).name(), name));
+            const Blueprint& blueprint = AcquireBlueprint(typeid(T).name(), name);
+            return *static_cast<const BlueprintInterface<T>*>(&blueprint);
         }
     }
 }

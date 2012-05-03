@@ -143,6 +143,7 @@
     <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint_service.hpp" />
+    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\framework.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\prefix.hpp" />
     <ClInclude Include="..\..\..\..\engine\src\spire\core\service.hpp" />

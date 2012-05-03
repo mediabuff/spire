@@ -20,13 +20,13 @@ namespace spire
         template <typename T>
         inline BasicService<T>::BasicService()
         {
-            GetFramework().Register(static_cast<T*>(this));
+            GetFramework().Register<T>(static_cast<T*>(this));
         }
 
         template <typename T>
         inline BasicService<T>::~BasicService()
         {
-            GetFramework().Register(static_cast<T*>(nullptr));
+            GetFramework().Register<T>(static_cast<T*>(nullptr));
         }
     }
 }
