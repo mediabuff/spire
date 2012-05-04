@@ -13,29 +13,29 @@ using namespace spire;
 
 namespace
 {
-    enum AnimalStatus
+    enum AnimalRole
     {
-        AnimalStatus_Wild,
-        AnimalStatus_FoodSource,
-        AnimalStatus_Pet,
-        AnimalStatus_Intelligent
+        AnimalRole_Wild,
+        AnimalRole_FoodSource,
+        AnimalRole_Pet,
+        AnimalRole_Intelligent
     };
 
-    BEGIN_ENUM_LABELS(AnimalStatus)
-        DEF_ENUM_LABEL("wild", AnimalStatus_Wild)
-        DEF_ENUM_LABEL("foodSource", AnimalStatus_FoodSource)
-        DEF_ENUM_LABEL("pet", AnimalStatus_Pet)
-        DEF_ENUM_LABEL("intelligent", AnimalStatus_Intelligent)
+    BEGIN_ENUM_LABELS(AnimalRole)
+        DEF_ENUM_LABEL("wild", AnimalRole_Wild)
+        DEF_ENUM_LABEL("foodSource", AnimalRole_FoodSource)
+        DEF_ENUM_LABEL("pet", AnimalRole_Pet)
+        DEF_ENUM_LABEL("intelligent", AnimalRole_Intelligent)
     END_ENUM_LABELS()
 
     class AnimalBlueprint : public BlueprintInterface<class Animal>
     {
     public:
         std::string scientificName;
-        AnimalStatus status;
+        AnimalRole role;
         BEGIN_HOST_PROPERTY_MAP()
             DEF_PROPERTY(scientificName)
-            DEF_PROPERTY(status)
+            DEF_PROPERTY(role)
         END_HOST_PROPERTY_MAP()
     };
 
@@ -43,11 +43,11 @@ namespace
     {
     public:
         std::string scientificName;
-        AnimalStatus status;
+        AnimalRole role;
 
         Animal(const class AnimalBlueprint& blueprint)
         : scientificName(blueprint.scientificName),
-          status(blueprint.status)
+          role(blueprint.role)
         {
         }
 
@@ -118,45 +118,45 @@ TEST(BlueprintTests, BlueprintsCanBeLoadedFromXml)
     svc->Register("bird", std::unique_ptr<Blueprint>(new BirdBlueprint()));
     
     const char* xml =
-        "<blueprints>\n"
+        "<animals>\n"
         "   <mammal name=\"man\">\n"
         "       <scientificName>Homo sapien</scientificName>\n"
         "       <legs>2</legs>\n"
-        "       <status>intelligent</status>"
+        "       <role>intelligent</role>"
         "   </mammal>\n"
         "   <mammal name=\"dog\">\n"
         "       <scientificName>Canis familiaris</scientificName>\n"
         "       <legs>4</legs>\n"
-        "       <status>pet</status>"
+        "       <role>pet</role>"
         "   </mammal>\n"
         "   <bird name=\"raven\">\n"
         "       <scientificName>Corvus corax</scientificName>\n"
         "       <canFly>1</canFly>\n"
-        "       <status>wild</status>\n"
+        "       <role>wild</role>\n"
         "   </bird>\n"
         "   <bird name=\"chicken\">\n"
         "       <scientificName>Gallus gallus domesticus</scientificName>\n"
         "       <canFly>0</canFly>\n"
-        "       <status>foodSource</status>\n"
+        "       <role>foodSource</role>\n"
         "   </bird>\n"
-        "</blueprints>\n";
+        "</animals>\n";
     std::vector<char> buf(xml, xml + strlen(xml) + 1);
     svc->Parse(std::move(buf));
 
     auto man = svc->Acquire<Animal>("man").Construct();
     ASSERT_STREQ("Homo sapien", man->scientificName.c_str());
     ASSERT_EQ(2, dynamic_cast<Mammal*>(man.get())->legs);
-    ASSERT_EQ(AnimalStatus_Intelligent, man->status);
+    ASSERT_EQ(AnimalRole_Intelligent, man->role);
     auto dog = svc->Acquire<Animal>("dog").Construct();
     ASSERT_STREQ("Canis familiaris", dog->scientificName.c_str());
     ASSERT_EQ(4, dynamic_cast<Mammal*>(dog.get())->legs);
-    ASSERT_EQ(AnimalStatus_Pet, dog->status);
+    ASSERT_EQ(AnimalRole_Pet, dog->role);
     auto raven = svc->Acquire<Animal>("raven").Construct();
     ASSERT_STREQ("Corvus corax", raven->scientificName.c_str());
     ASSERT_TRUE(dynamic_cast<Bird*>(raven.get())->canFly);
-    ASSERT_EQ(AnimalStatus_Wild, raven->status);
+    ASSERT_EQ(AnimalRole_Wild, raven->role);
     auto chicken = svc->Acquire<Animal>("chicken").Construct();
     ASSERT_STREQ("Gallus gallus domesticus", chicken->scientificName.c_str());
     ASSERT_FALSE(dynamic_cast<Bird*>(chicken.get())->canFly);
-    ASSERT_EQ(AnimalStatus_FoodSource, chicken->status);
+    ASSERT_EQ(AnimalRole_FoodSource, chicken->role);
 }
