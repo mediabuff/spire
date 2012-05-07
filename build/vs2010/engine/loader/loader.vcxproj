@@ -51,23 +51,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Spire.Common.props" />
-    <Import Project="..\Spire.Engine.props" />
+    <Import Project="..\..\Spire.Common.props" />
+    <Import Project="..\..\Spire.Engine.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Spire.Common.props" />
-    <Import Project="..\Spire.Engine.props" />
+    <Import Project="..\..\Spire.Common.props" />
+    <Import Project="..\..\Spire.Engine.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Spire.Common.props" />
-    <Import Project="..\Spire.Engine.props" />
+    <Import Project="..\..\Spire.Common.props" />
+    <Import Project="..\..\Spire.Engine.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\Spire.Common.props" />
-    <Import Project="..\Spire.Engine.props" />
+    <Import Project="..\..\Spire.Common.props" />
+    <Import Project="..\..\Spire.Engine.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -139,26 +139,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\default_loader_service.hpp" />
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file.hpp" />
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file_protocol.hpp" />
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file_provider.hpp" />
-    <ClInclude Include="..\..\..\engine\src\spire\loader\loader_service.hpp" />
-    <ClInclude Include="..\..\..\engine\src\spire\loader\prefix.hpp" />
+    <ProjectReference Include="..\common\common.vcxproj">
+      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\engine\src\spire\loader\default_loader_service.cpp" />
-    <ClCompile Include="..\..\..\engine\src\spire\loader\prefix.cpp">
+    <ClInclude Include="..\..\..\..\include\spire\loader\file.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\file_protocol.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\file_provider.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\loader_service.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\loader\default_loader_service.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\loader\prefix.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\engine\loader\default_loader_service.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\loader\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\engine\common\common.vcxproj">
-      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

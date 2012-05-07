@@ -9,59 +9,62 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="API">
+      <UniqueIdentifier>{abb06b5c-d9a8-4db1-8da9-60737df1c802}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\framework.hpp">
+    <ClInclude Include="..\..\..\..\include\spire\core\blueprint.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\blueprint_service.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\factory.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\framework.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\service.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\core\default_blueprint_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\prefix.hpp">
+    <ClInclude Include="..\..\..\..\src\engine\core\default_framework.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\service.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint_service.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp">
+    <ClInclude Include="..\..\..\..\src\engine\core\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\prefix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_framework.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include="..\..\..\..\include\spire\core\blueprint.inl">
+      <Filter>API</Filter>
+    </None>
+    <None Include="..\..\..\..\include\spire\core\blueprint_service.inl">
+      <Filter>API</Filter>
+    </None>
+    <None Include="..\..\..\..\include\spire\core\factory.inl">
+      <Filter>API</Filter>
+    </None>
+    <None Include="..\..\..\..\include\spire\core\framework.inl">
+      <Filter>API</Filter>
+    </None>
+    <None Include="..\..\..\..\include\spire\core\service.inl">
+      <Filter>API</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\engine\src\spire\core\service.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\..\..\engine\src\spire\core\framework.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\..\..\engine\src\spire\core\blueprint_service.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\..\..\engine\src\spire\core\blueprint.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="..\..\..\..\engine\src\spire\core\factory.inl">
-      <Filter>Header Files</Filter>
-    </None>
+    <ClCompile Include="..\..\..\..\src\engine\core\default_blueprint_service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\core\default_framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\core\prefix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

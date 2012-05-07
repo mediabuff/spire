@@ -13,6 +13,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\libs\rapidxml\include\;$(SolutionDir)..\..\engine\src\</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>prefix.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>BOOST_ALL_DYN_LINK;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

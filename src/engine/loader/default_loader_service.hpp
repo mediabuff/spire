@@ -16,7 +16,9 @@
 namespace spire
 {
     namespace loader
-    {
+    {       
+        class FileProvider;
+
         ///
         /// Default implementation of LoaderService.
         ///
@@ -39,8 +41,9 @@ namespace spire
             /// @{
             virtual void RegisterProtocol(std::unique_ptr<FileProtocol> protocol,
                                           const char* name);
-            virtual void Mount(const char* uri,
-                               const char* mount);
+            virtual FileProvider& Mount(const char* uri,
+                                        const char* mount);
+            virtual void Unmount(FileProvider& provider);
             virtual std::shared_ptr<File> Open(const char* path);
             //! @}
 

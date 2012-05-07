@@ -6,113 +6,116 @@
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Header Files">
+      <UniqueIdentifier>{f10c4db8-5bb0-4ae5-a0a9-c13adc6cc3ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\exception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\prefix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\get_framework.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\xml_serializer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\exception.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\boolean_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\prefix.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\collection_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\prerequisites.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\dictionary_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\get_framework.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\enum_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\version.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\exception.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\boolean_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\get_framework.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\collection_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\integer_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\dictionary_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\object_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\integer_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\prerequisites.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\object_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\property_host.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_host.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\property_traits.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_wrapper.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\property_wrapper.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\real_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\real_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\string_property.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\string_property.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\xml_serializer.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\version.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_traits.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\include\spire\common\xml_serializer.hpp">
+      <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\enum_property.hpp">
+    <ClInclude Include="..\..\..\..\src\engine\common\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\engine\src\spire\common\boolean_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\boolean_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\collection_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\collection_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\dictionary_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\dictionary_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\integer_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\enum_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\object_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\integer_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\object_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\property_traits.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\property_wrapper.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\property_traits.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\real_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\property_wrapper.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\string_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\real_property.inl">
+      <Filter>API</Filter>
     </None>
-    <None Include="..\..\..\..\engine\src\spire\common\enum_property.inl">
-      <Filter>Header Files</Filter>
+    <None Include="..\..\..\..\include\spire\common\string_property.inl">
+      <Filter>API</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\engine\common\exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\common\get_framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\common\prefix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\common\xml_serializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

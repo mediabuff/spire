@@ -19,48 +19,48 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\exception.cpp" />
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\get_framework.cpp" />
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\prefix.cpp">
+    <ClInclude Include="..\..\..\..\include\spire\common\boolean_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\collection_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\dictionary_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\enum_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\exception.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\get_framework.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\integer_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\object_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\prerequisites.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\property_host.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\property_traits.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\property_wrapper.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\real_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\string_property.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\version.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\common\xml_serializer.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\common\prefix.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\include\spire\common\boolean_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\collection_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\dictionary_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\enum_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\integer_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\object_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\property.inl" />
+    <None Include="..\..\..\..\include\spire\common\property_traits.inl" />
+    <None Include="..\..\..\..\include\spire\common\property_wrapper.inl" />
+    <None Include="..\..\..\..\include\spire\common\real_property.inl" />
+    <None Include="..\..\..\..\include\spire\common\string_property.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\engine\common\exception.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\common\get_framework.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\common\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\engine\src\spire\common\xml_serializer.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\boolean_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\collection_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\dictionary_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\enum_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\exception.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\get_framework.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\integer_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\object_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\prefix.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\prerequisites.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_host.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_traits.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\property_wrapper.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\real_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\string_property.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\version.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\common\xml_serializer.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\engine\src\spire\common\boolean_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\collection_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\dictionary_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\enum_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\integer_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\object_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\property_traits.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\property_wrapper.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\real_property.inl" />
-    <None Include="..\..\..\..\engine\src\spire\common\string_property.inl" />
+    <ClCompile Include="..\..\..\..\src\engine\common\xml_serializer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0D95A7E4-E148-4082-BA87-49B7965B35F6}</ProjectGuid>

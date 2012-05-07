@@ -139,36 +139,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\default_framework.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\blueprint_service.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\factory.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\framework.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\prefix.hpp" />
-    <ClInclude Include="..\..\..\..\engine\src\spire\core\service.hpp" />
+    <ProjectReference Include="..\common\common.vcxproj">
+      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_blueprint_service.cpp" />
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\default_framework.cpp" />
-    <ClCompile Include="..\..\..\..\engine\src\spire\core\prefix.cpp">
+    <ClInclude Include="..\..\..\..\include\spire\core\blueprint.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\blueprint_service.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\factory.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\framework.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\service.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\default_blueprint_service.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\default_framework.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\prefix.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\include\spire\core\blueprint.inl" />
+    <None Include="..\..\..\..\include\spire\core\blueprint_service.inl" />
+    <None Include="..\..\..\..\include\spire\core\factory.inl" />
+    <None Include="..\..\..\..\include\spire\core\framework.inl" />
+    <None Include="..\..\..\..\include\spire\core\service.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\engine\core\default_blueprint_service.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\core\default_framework.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\core\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\engine\src\spire\core\blueprint.inl" />
-    <None Include="..\..\..\..\engine\src\spire\core\blueprint_service.inl" />
-    <None Include="..\..\..\..\engine\src\spire\core\factory.inl" />
-    <None Include="..\..\..\..\engine\src\spire\core\framework.inl" />
-    <None Include="..\..\..\..\engine\src\spire\core\service.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\common\common.vcxproj">
-      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

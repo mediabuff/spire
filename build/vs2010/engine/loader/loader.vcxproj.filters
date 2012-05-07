@@ -9,32 +9,35 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="API">
+      <UniqueIdentifier>{b6c86e96-c66d-4232-ab28-30b8536b61a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\loader_service.hpp">
+    <ClInclude Include="..\..\..\..\include\spire\loader\file.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\file_protocol.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\file_provider.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\loader_service.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\loader\default_loader_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file_protocol.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file_provider.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\file.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\default_loader_service.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\engine\src\spire\loader\prefix.hpp">
+    <ClInclude Include="..\..\..\..\src\engine\loader\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\engine\src\spire\loader\prefix.cpp">
+    <ClCompile Include="..\..\..\..\src\engine\loader\default_loader_service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\engine\src\spire\loader\default_loader_service.cpp">
+    <ClCompile Include="..\..\..\..\src\engine\loader\prefix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

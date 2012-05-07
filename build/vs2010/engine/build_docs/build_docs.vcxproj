@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\engine\Doxyfile" />
+    <None Include="..\..\..\..\doc\Doxyfile" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EC2AA9A0-446A-463F-8E2D-4E7C96FA508F}</ProjectGuid>
@@ -78,7 +78,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>cd $(SolutionDir)..\..\engine\
+      <Command>cd $(SolutionDir)..\..\doc\
 doxygen</Command>
     </PostBuildEvent>
     <PostBuildEvent>

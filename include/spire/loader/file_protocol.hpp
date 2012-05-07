@@ -30,7 +30,7 @@ namespace spire
             /// Creates a provider from a path.
             ///
             /// @param path Path which will be the root for the provider.
-            /// @param FileProvider which will use the provided path as its root.
+            /// @return FileProvider which will use the provided path as its root.
             ///
             virtual std::unique_ptr<FileProvider> CreateProvider(const char* path) = 0;
         };

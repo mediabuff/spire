@@ -11,12 +11,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\engine\src\spire\loader\tests\prefix.hpp">
+    <ClInclude Include="..\..\..\..\src\engine\loader\tests\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\engine\src\spire\loader\tests\prefix.cpp">
+    <ClCompile Include="..\..\..\..\src\engine\loader\tests\prefix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

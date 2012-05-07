@@ -21,6 +21,29 @@ namespace spire
         class File;
 
         ///
+        /// Error thrown when an attempt to register a protocol fails because
+        /// another protocol was already registered under the same name.
+        ///
+        typedef Error<struct _ProtocolAlreadyRegisteredError, RuntimeError> ProtocolAlreadyRegisteredError;
+
+        ///
+        /// Error thrown when an attempt to open a file fails because the
+        /// protocol specified in the file's URI has not been registered.
+        ///
+        typedef Error<struct _ProtocolNotFoundError, RuntimeError> ProtocolNotFoundError;
+
+        ///
+        /// Error thrown when a URI cannot be processed because it is malformed.
+        ///
+        typedef Error<struct _MalformedUriError, RuntimeError> MalformedUriError;
+
+        ///
+        /// Error thrown when an attempt to open a file fails because none of the
+        /// providers supplied a file with the given path.
+        ///
+        typedef Error<struct _FileNotFoundError, RuntimeError> FileNotFoundError;
+
+        ///
         /// Manages the virtual filesystem.
         ///
         class LoaderService : public Service
@@ -47,10 +70,20 @@ namespace spire
             /// @param uri URI to mount; the protocol must have previously been
             ///            registered via RegisterProtocol.
             /// @param mount Mount point in the virtual filesystem.
+            /// @return Reference to the FileProvider instance; may be passed to
+            ///         Unmount to reverse this operation.
             ///
-            virtual void Mount(const char* uri,
-                               const char* mount) = 0;
+            virtual FileProvider& Mount(const char* uri,
+                                        const char* mount) = 0;
          
+            ///
+            /// Unmounts a FileProvider.
+            ///
+            /// @param provider FileProvider instance returned from a previous
+            ///                 call to Mount().
+            ///
+            virtual void Unmount(FileProvider& provider) = 0;
+
             ///
             /// Opens a file.
             ///

@@ -15,6 +15,8 @@ namespace spire
 {
     namespace loader
     {
+        class File;
+
         ///
         /// Encapsulates a source for files.
         ///

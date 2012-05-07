@@ -139,22 +139,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\apps\sandbox\src\prefix.hpp" />
-    <ClInclude Include="..\..\..\..\apps\sandbox\src\sandbox_application.hpp" />
+    <ProjectReference Include="..\..\engine\common\common.vcxproj">
+      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\apps\sandbox\src\prefix.cpp">
+    <ClCompile Include="..\..\..\..\src\apps\sandbox\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\apps\sandbox\src\sandbox_application.cpp" />
+    <ClCompile Include="..\..\..\..\src\apps\sandbox\sandbox_application.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\engine\common\common.vcxproj">
-      <Project>{0d95a7e4-e148-4082-ba87-49b7965b35f6}</Project>
-    </ProjectReference>
+    <ClInclude Include="..\..\..\..\src\apps\sandbox\prefix.hpp" />
+    <ClInclude Include="..\..\..\..\src\apps\sandbox\sandbox_application.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
