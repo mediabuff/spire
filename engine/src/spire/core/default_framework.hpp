@@ -41,6 +41,7 @@ namespace spire
             virtual Service& AcquireService(const std::string& type);
             virtual Factory& AcquireFactory(const std::string& name);
             virtual void Register(std::unique_ptr<Factory> factory, std::string name);
+            virtual void LoadModule(const char* name);
             //! @}
 
         private:

@@ -87,3 +87,15 @@ Factory& DefaultFramework::AcquireFactory(const std::string& name)
     }
     return *i->second;
 }
+
+void DefaultFramework::LoadModule(const char* name)
+{
+    // TODO: refactor this into a platform-independent interface
+    // TODO: add verification that the module is a spire module before loading it
+    char path[MAX_PATH] = {0};
+    sprintf_s(path, "%s.dll", name);
+
+    HMODULE hmod;
+    WIN_CHECK(hmod = LoadLibraryExA(path, NULL, 0));
+
+}

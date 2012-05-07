@@ -14,16 +14,9 @@ using namespace core;
 
 namespace
 {
-    struct AutoRegisterFactories
-    {
-        AutoRegisterFactories()
-        {
-            GetFramework().Register(std::unique_ptr<Factory>(new BasicFactory<DefaultBlueprintService, BlueprintServiceFactory>()),
-                                    "DefaultBlueprintService");
-        }
-    };
+    AutoRegisterFactory<BasicFactory<DefaultBlueprintService, BlueprintServiceFactory>>
+        registerDefaultBlueprintServiceFactory("DefaultBlueprintService");
 }
-AutoRegisterFactories autoreg;
 
 DefaultBlueprintService::DefaultBlueprintService()
 {

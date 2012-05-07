@@ -37,7 +37,7 @@ namespace spire
             /// @param offset Offset to begin reading at.
             /// @param count Maximum number of bytes to read.
             /// @return Future containing a vector holding the read data, or
-            //          an exception if an error occured.
+            ///         an exception if an error occured.
             /// 
             virtual boost::unique_future<std::vector<char>> Read(size_t offset, size_t count) const = 0;
         };

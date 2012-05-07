@@ -25,6 +25,15 @@ namespace spire
             /// Destructor.
             ///
             virtual ~FileProvider();
+
+            ///
+            /// Opens a file.
+            ///
+            /// @param path Path to the file, relative to the path the provider
+            ///             was created from.
+            /// @return File object, or null if the file does not exist.
+            ///
+            virtual std::unique_ptr<File> Open(const char* path) = 0;
         };
     }   //  namespace loader
     using loader::FileProvider;

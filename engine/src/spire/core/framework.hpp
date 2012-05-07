@@ -44,6 +44,11 @@ namespace spire
         /// the factory under that particular name.
         ///
         typedef Error<struct _FactoryTypeError, RuntimeError> FactoryTypeError;
+        
+        ///
+        /// Exception thrown when a module fails to load.
+        ///
+        typedef Error<struct _ModuleLoadError, RuntimeError> ModuleLoadError;
 
         ///
         /// Global service broker and facilitator.
@@ -107,7 +112,15 @@ namespace spire
             ///
             virtual void Register(std::unique_ptr<Factory> factory,
                                   std::string name) = 0;
-            
+
+            ///
+            /// Loads a module.
+            ///
+            /// @param name Name of the module to load; does not need to include
+            ///             the extension (i.e. ".dll")
+            ///
+            virtual void LoadModule(const char* name) = 0;
+
         protected:
             ///
             /// Destructor.

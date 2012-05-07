@@ -199,10 +199,30 @@ namespace spire
         class BasicFactory : public BasicFactoryHelper<T, I, boost::function_types::function_arity<typename I::SignatureType>::value>
         {
         };
+
+        ///
+        /// Helper for auto-registering a factory on module load.
+        ///
+        /// @param T Factory type.
+        ///
+        template <typename T>
+        class AutoRegisterFactory : public boost::noncopyable
+        {
+        public:
+            ///
+            /// Constructor.
+            ///
+            /// @param name Name to register the factory under.
+            ///
+            AutoRegisterFactory(const char* name);
+        };
     }   //  namespace core
     using core::Factory;
     using core::FactoryInterface;
     using core::BasicFactory;
+    using core::AutoRegisterFactory;
 }   //  namespace spire
+
+#include "spire/core/factory.inl"
 
 #endif  //  SPIRE_CORE_FACTORY_HPP

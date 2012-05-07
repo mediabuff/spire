@@ -60,5 +60,8 @@
     <None Include="..\..\..\..\engine\src\spire\core\blueprint.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="..\..\..\..\engine\src\spire\core\factory.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
