@@ -7,7 +7,7 @@
 #include "spire/common/property.hpp"
 #include "spire/common/xml_serializer.hpp"
 #include "spire/core/blueprint.hpp"
-#include "spire/core/default_blueprint_service.hpp"
+#include "default_blueprint_service.hpp"
 
 using namespace spire;
 using namespace core;

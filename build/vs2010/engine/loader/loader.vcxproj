@@ -148,6 +148,9 @@
     <ClInclude Include="..\..\..\..\include\spire\loader\file_protocol.hpp" />
     <ClInclude Include="..\..\..\..\include\spire\loader\file_provider.hpp" />
     <ClInclude Include="..\..\..\..\include\spire\loader\loader_service.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file_protocol.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file_provider.hpp" />
     <ClInclude Include="..\..\..\..\src\engine\loader\default_loader_service.hpp" />
     <ClInclude Include="..\..\..\..\src\engine\loader\prefix.hpp" />
   </ItemGroup>

@@ -5,9 +5,9 @@
 
 #include "prefix.hpp"
 #include "spire/common/version.hpp"
-#include "spire/core/default_framework.hpp"
 #include "spire/core/factory.hpp"
 #include "spire/core/service.hpp"
+#include "default_framework.hpp"
 
 using namespace spire;
 using namespace core;

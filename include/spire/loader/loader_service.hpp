@@ -18,6 +18,7 @@ namespace spire
     namespace loader
     {
         class FileProtocol;
+        class FileProvider;
         class File;
 
         ///
@@ -52,7 +53,7 @@ namespace spire
             ///
             /// Destructor.
             ///
-            virtual ~LoaderService() = 0;
+            virtual ~LoaderService() = 0 { };
 
             ///
             /// Registers a protocol.

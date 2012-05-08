@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\libs\rapidxml\include\;$(SolutionDir)..\..\engine\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\;$(SolutionDir)..\..\libs\rapidxml\include\</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>prefix.hpp</PrecompiledHeaderFile>
       <PreprocessorDefinitions>BOOST_ALL_DYN_LINK;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>

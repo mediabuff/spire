@@ -19,5 +19,8 @@
     <ClCompile Include="..\..\..\..\src\engine\loader\tests\prefix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\loader\tests\default_loader_service_tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

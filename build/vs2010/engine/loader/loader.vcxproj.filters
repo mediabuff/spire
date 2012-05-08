@@ -12,6 +12,9 @@
     <Filter Include="API">
       <UniqueIdentifier>{b6c86e96-c66d-4232-ab28-30b8536b61a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API\mocks">
+      <UniqueIdentifier>{a1fe9766-228b-46c7-9bba-9482de4159f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\include\spire\loader\file.hpp">
@@ -31,6 +34,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\src\engine\loader\prefix.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file_provider.hpp">
+      <Filter>API\mocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file_protocol.hpp">
+      <Filter>API\mocks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file.hpp">
+      <Filter>API\mocks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

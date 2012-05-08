@@ -72,13 +72,17 @@ FileProvider& DefaultLoaderService::Mount(const char* uri,
     
     auto provider = i->second->CreateProvider(path.c_str());
     m_providers.push_back(std::make_pair(std::move(mountStr), std::move(provider)));
+    return *provider;
 }
 
 void DefaultLoaderService::Unmount(FileProvider& provider)
 {
     m_providers.erase(std::remove_if(m_providers.begin(),
                                      m_providers.end(),
-                                     [&] (FileProvider& p) { return &p == &provider; }),
+                                     [&] (decltype(*m_providers.begin())& p) 
+                                     { 
+                                        return p.second.get() == &provider; 
+                                     }),
                       m_providers.end());
 }
 
