@@ -38,6 +38,27 @@
     <ClInclude Include="..\..\..\..\src\engine\core\prefix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\task_service.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\task.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\task_queue.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\core\default_task_service.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\core\default_task_queue.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\include\spire\core\thread_pool.hpp">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\core\default_thread_pool.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\include\spire\core\blueprint.inl">
@@ -55,6 +76,9 @@
     <None Include="..\..\..\..\include\spire\core\service.inl">
       <Filter>API</Filter>
     </None>
+    <None Include="..\..\..\..\include\spire\core\task.inl">
+      <Filter>API</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\engine\core\default_blueprint_service.cpp">
@@ -64,6 +88,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\engine\core\prefix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\core\default_task_queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\core\default_task_service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

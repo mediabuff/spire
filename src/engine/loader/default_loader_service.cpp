@@ -71,8 +71,9 @@ FileProvider& DefaultLoaderService::Mount(const char* uri,
     }
     
     auto provider = i->second->CreateProvider(path.c_str());
+	auto& ref = *provider;
     m_providers.push_back(std::make_pair(std::move(mountStr), std::move(provider)));
-    return *provider;
+    return ref;
 }
 
 void DefaultLoaderService::Unmount(FileProvider& provider)
@@ -103,7 +104,7 @@ std::shared_ptr<File> DefaultLoaderService::Open(const char* path)
             auto filePtr = i->second->Open(pathStr.substr(i->first.size()).c_str());
             if (filePtr)
             {
-                return std::shared_ptr<File>(filePtr.get());
+                return std::shared_ptr<File>(filePtr.release());
             }
         }
     }

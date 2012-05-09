@@ -149,8 +149,15 @@
     <ClInclude Include="..\..\..\..\include\spire\core\factory.hpp" />
     <ClInclude Include="..\..\..\..\include\spire\core\framework.hpp" />
     <ClInclude Include="..\..\..\..\include\spire\core\service.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\task.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\task_queue.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\task_service.hpp" />
+    <ClInclude Include="..\..\..\..\include\spire\core\thread_pool.hpp" />
     <ClInclude Include="..\..\..\..\src\engine\core\default_blueprint_service.hpp" />
     <ClInclude Include="..\..\..\..\src\engine\core\default_framework.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\default_task_queue.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\default_task_service.hpp" />
+    <ClInclude Include="..\..\..\..\src\engine\core\default_thread_pool.hpp" />
     <ClInclude Include="..\..\..\..\src\engine\core\prefix.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,10 +166,13 @@
     <None Include="..\..\..\..\include\spire\core\factory.inl" />
     <None Include="..\..\..\..\include\spire\core\framework.inl" />
     <None Include="..\..\..\..\include\spire\core\service.inl" />
+    <None Include="..\..\..\..\include\spire\core\task.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\engine\core\default_blueprint_service.cpp" />
     <ClCompile Include="..\..\..\..\src\engine\core\default_framework.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\core\default_task_queue.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\core\default_task_service.cpp" />
     <ClCompile Include="..\..\..\..\src\engine\core\prefix.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

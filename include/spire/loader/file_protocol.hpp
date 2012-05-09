@@ -24,7 +24,7 @@ namespace spire
             ///
             /// Destructor.
             ///
-            virtual ~FileProtocol();
+			virtual ~FileProtocol() = 0 { };
 
             ///
             /// Creates a provider from a path.
