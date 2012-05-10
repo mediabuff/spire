@@ -50,9 +50,6 @@
     <ClInclude Include="..\..\..\..\src\engine\core\default_task_service.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\engine\core\default_task_queue.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\include\spire\core\thread_pool.hpp">
       <Filter>API</Filter>
     </ClInclude>
@@ -79,6 +76,9 @@
     <None Include="..\..\..\..\include\spire\core\task.inl">
       <Filter>API</Filter>
     </None>
+    <None Include="..\..\..\..\include\spire\core\task_queue.inl">
+      <Filter>API</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\engine\core\default_blueprint_service.cpp">
@@ -90,10 +90,10 @@
     <ClCompile Include="..\..\..\..\src\engine\core\prefix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\engine\core\default_task_queue.cpp">
+    <ClCompile Include="..\..\..\..\src\engine\core\default_task_service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\engine\core\default_task_service.cpp">
+    <ClCompile Include="..\..\..\..\src\engine\core\default_thread_pool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

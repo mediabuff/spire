@@ -39,6 +39,15 @@ namespace spire
             virtual TaskQueue& GetMainlineTaskQueue() = 0;
 
             ///
+            /// Returns the asynchronous task queue.
+            ///
+            /// Tasks in the asynchronous are executed using the
+            /// global thread pool, and do not need to wait for Update()
+            /// to be called.
+            ///
+            virtual TaskQueue& GetAsyncTaskQueue() = 0;
+
+            ///
             /// Runs tasks in the mainline queue.
             ///
             /// @param timeout Maximum amount of time to spend, in ms.

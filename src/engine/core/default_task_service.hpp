@@ -12,12 +12,14 @@
 #define SPIRE_CORE_DEFAULT_TASK_SERVICE_HPP
 
 #include "spire/core/task_service.hpp"
-#include "default_task_queue.hpp"
+#include "spire/core/task_queue.hpp"
 
 namespace spire
 {
     namespace core
     {
+        class ThreadPool;
+
         class DefaultTaskService : public BasicService<TaskService>
         {
         public:
@@ -35,11 +37,13 @@ namespace spire
             /// From TaskService.
             /// @{
             virtual TaskQueue& GetMainlineTaskQueue();
+            virtual TaskQueue& GetAsyncTaskQueue();
             virtual void Update(size_t timeout);
             //! @}
 
         private:
-            DefaultTaskQueue m_mainlineTaskQueue;
+            TaskQueue m_mainlineTaskQueue;
+            std::unique_ptr<ThreadPool> m_threadPool;
         };
     }   //  namespace core
 }   //  namespace spire

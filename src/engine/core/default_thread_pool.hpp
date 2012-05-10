@@ -12,6 +12,7 @@
 #define SPIRE_CORE_DEFAULT_THREAD_POOL
 
 #include "spire/core/thread_pool.hpp"
+#include "spire/core/task_queue.hpp"
 
 namespace spire
 {
@@ -20,13 +21,16 @@ namespace spire
         ///
         /// Default implementation of ThreadPool.
         ///
-        class DefaultThreadPool : public ThreadPool
+        class DefaultThreadPool : public ThreadPool,
+                                  public boost::noncopyable
         {
         public:
             ///
             /// Constructor.
             ///
-            DefaultThreadPool();
+            /// @param threadCount Maximum number of threads to spawn.
+            ///
+            DefaultThreadPool(int threadCount);
 
             ///
             /// Destructor.
@@ -40,7 +44,11 @@ namespace spire
             //! @}
 
         private:
-            std::unique_ptr<TaskQueue> m_taskQueue;
+            static void Worker(DefaultThreadPool& threadPool, int affinity);
+
+            TaskQueue m_taskQueue;
+            std::vector<boost::thread> m_threads;
+            bool m_exit;
         };
     }
 }

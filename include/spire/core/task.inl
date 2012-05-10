@@ -11,6 +11,18 @@
 #ifndef SPIRE_CORE_TASK_INL
 #define SPIRE_CORE_TASK_INL
 
+template <typename T>
+inline bool IsReady(const boost::unique_future<T>& future)
+{
+    return future.is_ready();
+}
+
+template <typename T>
+inline bool IsReady(const boost::shared_future<T>& future)
+{
+    return future.is_ready();
+}
+
 namespace spire
 {
     namespace core
@@ -52,7 +64,7 @@ namespace spire
         template <typename T, typename F>
         inline bool DependentTask<T, F>::Ready() const
         {
-            return m_future.is_ready();
+            return IsReady(m_future);
         }
 
         template <typename T, typename F>

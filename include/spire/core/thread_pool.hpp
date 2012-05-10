@@ -20,13 +20,13 @@ namespace spire
         ///
         /// Thread pool for excuting tasks from a TaskQueue.
         ///
-        class ThreadPool 
+        class ThreadPool
         {
         public:
             ///
             /// Destructor.
             ///
-            virtual ~ThreadPool() = 0;
+            virtual ~ThreadPool() = 0 { };
 
             ///
             /// Returns the TaskQueue associated with the thread pool.

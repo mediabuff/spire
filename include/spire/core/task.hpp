@@ -117,4 +117,6 @@ namespace spire
 	}	//	namespace core
 }	//	namespace spire
 
+#include "task.inl"
+
 #endif	//	SPIRE_CORE_TASK_HPP
