@@ -44,7 +44,7 @@ namespace spire
             //! @}
 
         private:
-            static void Worker(DefaultThreadPool& threadPool, int affinity);
+            static void Worker(DefaultThreadPool& threadPool);
 
             TaskQueue m_taskQueue;
             std::vector<boost::thread> m_threads;

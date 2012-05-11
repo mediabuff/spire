@@ -17,8 +17,7 @@ DefaultThreadPool::DefaultThreadPool(int threadCount)
     m_threads.resize(threadCount);
     for (size_t i = 0; i < m_threads.size(); ++i)
     {
-        //  affinity starts at 2 (0 is the mainline)
-        m_threads[i] = boost::thread(Worker, boost::ref(*this), i + 2);
+        m_threads[i] = boost::thread(Worker, boost::ref(*this));
     }
 }
 
@@ -36,12 +35,12 @@ TaskQueue& DefaultThreadPool::GetTaskQueue()
     return m_taskQueue;
 }
 
-void DefaultThreadPool::Worker(DefaultThreadPool& threadPool, int affinity)
+void DefaultThreadPool::Worker(DefaultThreadPool& threadPool)
 {
     std::unique_ptr<Task> task;
     while (!threadPool.m_exit)
     {
-        while (task = std::move(threadPool.m_taskQueue.Pop(affinity)))
+        while (task = std::move(threadPool.m_taskQueue.Pop()))
         {
             task->Run();
         }

@@ -58,6 +58,11 @@ namespace spire
             ///
             virtual void Update(size_t timeout) = 0;
 		};
+
+        ///
+        /// Factory interface for TaskService factories.
+        ///
+        typedef FactoryInterface<std::unique_ptr<TaskService>()> TaskServiceFactory;
 	}	//	namespace core
 }	//	namespace spire
 

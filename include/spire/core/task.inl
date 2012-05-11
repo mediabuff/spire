@@ -73,6 +73,19 @@ namespace spire
             assert(Ready());
             m_fn();
         }
+
+        template <typename T>
+        inline std::unique_ptr<Task> MakeTask(T&& fn)
+        {
+            return std::unique_ptr<Task>(new IndependentTask<T>(std::forward<T>(fn)));
+        }
+
+        template <typename F, typename T>
+        inline std::unique_ptr<Task> MakeTask(F&& future, T&& fn)
+        {
+            return std::unique_ptr<Task>(new DependentTask<T, F>(std::forward<T>(fn),
+                                                                 std::forward<F>(future)));
+        }
     }   //  namespace core
 }   //  namespace spire
 

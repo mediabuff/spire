@@ -24,7 +24,7 @@ namespace spire
         {
             if (!g_frameworkPtr)
             {
-                HMODULE coreDll = LoadLibraryA("spire_core.dll");
+                HMODULE coreDll = LoadLibraryA("spire_core");
                 WIN_CHECK(coreDll != nullptr);
 
                 //  The parameters are C++ runtime version and Spire version, respectively

@@ -23,6 +23,9 @@
     <ClCompile Include="..\..\..\..\src\engine\core\tests\service_tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\core\tests\task_queue_tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\engine\core\tests\prefix.hpp">

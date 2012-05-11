@@ -12,6 +12,12 @@
 using namespace spire;
 using namespace core;
 
+namespace
+{
+    AutoRegisterFactory<BasicFactory<DefaultTaskService, TaskServiceFactory>>
+        registerDefaultTaskServiceFactory("DefaultTaskService");
+}
+
 DefaultTaskService::DefaultTaskService()
 {
     // FIXME do not hard code the number of threads!
@@ -36,7 +42,7 @@ TaskQueue& DefaultTaskService::GetAsyncTaskQueue()
 void DefaultTaskService::Update(size_t timeout)
 {
     std::unique_ptr<Task> task;
-    while (task = m_mainlineTaskQueue.Pop(ThreadAffinities::Main))
+    while (task = m_mainlineTaskQueue.Pop())
     {
         task->Run();
     }

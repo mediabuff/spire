@@ -81,9 +81,7 @@ namespace spire
 			///	Constructor.
 			///
 			///	@param fn Code to execute.
-			///	@param future (Optional) Future to wait on. If empty, the
-			///				  task will be ready to run immediately. Otherwise,
-			///               it will be ready once the future is ready.
+			///	@param future Future to wait on.
 			///
 			DependentTask(T&& fn, F&& future);
 
@@ -110,11 +108,13 @@ namespace spire
         template <typename T>
         std::unique_ptr<Task> MakeTask(T&& fn);
 
-        template <typename T, typename F>
+        template <typename F, typename T>
         std::unique_ptr<Task> MakeTask(F&& future, T&& fn);
         //! @}
 
 	}	//	namespace core
+    using core::Task;
+    using core::MakeTask;
 }	//	namespace spire
 
 #include "task.inl"

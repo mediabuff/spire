@@ -153,6 +153,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\engine\core\tests\service_tests.cpp" />
+    <ClCompile Include="..\..\..\..\src\engine\core\tests\task_queue_tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\engine\core\tests\prefix.hpp" />

@@ -44,12 +44,30 @@
     <ClInclude Include="..\..\..\..\include\spire\loader\mocks\mock_file.hpp">
       <Filter>API\mocks</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\loader\local_protocol.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\loader\local_provider.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\engine\loader\local_file.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\engine\loader\default_loader_service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\engine\loader\prefix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\loader\local_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\loader\local_provider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\engine\loader\local_protocol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
